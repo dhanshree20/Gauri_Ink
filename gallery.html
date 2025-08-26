@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GauriInk</title>
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="icon" href="images/logo.webp">
+</head>
+<body>
+<!-- Navbar -->
+<!-- <div id="navbar-container"></div>  -->
+
+  <header class="navbar">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="index.html"><img src="images/logo.webp" alt="Logo"></a>
+    </div>
+
+    <!-- Hamburger -->
+    <div class="hamburger" id="hamburger">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <!-- Desktop Menu -->
+    <ul class="menu">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="dropdown">
+        <a href="#">Industry <i class="fa-solid fa-chevron-down"></i></a>
+        <ul class="dropdown-content">
+          <li><a href="food_industry.html">Food Industry</a></li>
+          <li><a href="beverage_Industry.html">Beverage Industry</a></li>
+          <li><a href="pharmaceutical_Cosmetics.html">Pharmaceutical, Cosmetics & Personal Care</a></li>
+          <li><a href="building_Materials.html">Building Materials</a></li>
+        </ul>
+      </li>
+      <li><a href="product.html">Products</a></li>
+      <li><a href="gallery.html">Our Gallery</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </header>
+
+  <!-- Mobile Slide Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="close-btn" id="closeBtn"><i class="fa-solid fa-xmark"></i></div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="mobile-dropdown">
+  <a href="#" class="mobileDropdownToggle">
+    Industry <i class="fa-solid fa-chevron-down"></i>
+  </a>
+  <ul class="mobile-dropdown-content">
+    <li><a href="food_industry.html">Food Industry</a></li>
+    <li><a href="beverage_Industry.html">Beverage Industry</a></li>
+    <li><a href="pharmaceutical_Cosmetics.html">Pharmaceutical, Cosmetics & Personal Care</a></li>
+    <li><a href="building_Materials.html">Building Materials</a></li>
+  </ul>
+</li>
+
+      <li><a href="product.html">Products</a></li>
+      <li><a href="gallery.html">Our Gallery</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const closeBtn = document.getElementById("closeBtn");
+
+    // Open menu
+    hamburger.addEventListener("click", () => {
+      mobileMenu.classList.add("active");
+    });
+
+    // Close menu
+    closeBtn.addEventListener("click", () => {
+      mobileMenu.classList.remove("active");
+    });
+
+    // Dropdown toggle (Initially Closed)
+    // Dropdown toggle (Initially Closed)
+document.querySelectorAll(".mobileDropdownToggle").forEach(toggle => {
+  toggle.addEventListener("click", (e) => {
+    e.preventDefault();
+    const parent = toggle.parentElement; // li.mobile-dropdown
+    
+    // close any other open dropdowns
+    document.querySelectorAll(".mobile-dropdown").forEach(drop => {
+      if (drop !== parent) {
+        drop.classList.remove("open");
+      }
+    });
+
+    // toggle current dropdown
+    parent.classList.toggle("open");
+  });
+});
+</script>
+
+
+  <!-- Gallery Hero Section -->
+      <section class="hero-section">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>Gallery</h1>
+      <p>Showcasing Our Range of Printers & Printing Solutions</span></p>
+    </div>
+  </section>
+
+
+    <!-- Gallery Section -->
+
+    <div class="gallery">
+    <!-- Row 1 -->
+    <figure class="tile"><img src="product_images/citronix cij.png" alt="Sample 1"></figure>
+    <figure class="tile"><img src="product_images/Citronix TIJ.png" alt="Sample 2"></figure>
+    <figure class="tile"><img src="product_images/FAMJET MAKRO LCP.png" alt="Sample 3"></figure>
+
+    <!-- Row 2 -->
+    <figure class="tile"><img src="product_images/FOENIX FX ONE (CARTON CODING).png" alt="Sample 4"></figure>
+    <figure class="tile"><img src="product_images/HANDCODER.png" alt="Sample 5"></figure>
+    <figure class="tile"><img src="product_images/HANDHELD LASER.png" alt="Sample 6"></figure>
+
+    <figure class="tile"><img src="product_images/HX CARTRO CARTON CODING.png" alt="Sample 6"></figure>
+    <figure class="tile"><img src="product_images/HX NITRO TIJ.png" alt="Sample 6"></figure>
+  </div>
+
+
+<!-- Footer -->
+<div id="footer-container"></div>
+<script src="footer.js"></script>  
+</body>
+</html>

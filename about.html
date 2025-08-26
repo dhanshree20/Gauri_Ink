@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GauriInk</title>
+    <link rel="stylesheet" href="about.css">
+    <link rel="icon" href="images/logo.webp">
+</head>
+<body>
+<!-- Navbar -->
+<!-- <div id="navbar-container"></div>  -->
+
+  <header class="navbar">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="index.html"><img src="images/logo.webp" alt="Logo"></a>
+    </div>
+
+    <!-- Hamburger -->
+    <div class="hamburger" id="hamburger">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <!-- Desktop Menu -->
+    <ul class="menu">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="dropdown">
+        <a href="#">Industry <i class="fa-solid fa-chevron-down"></i></a>
+        <ul class="dropdown-content">
+          <li><a href="food_industry.html">Food Industry</a></li>
+          <li><a href="beverage_Industry.html">Beverage Industry</a></li>
+          <li><a href="pharmaceutical_Cosmetics.html">Pharmaceutical, Cosmetics & Personal Care</a></li>
+          <li><a href="building_Materials.html">Building Materials</a></li>
+        </ul>
+      </li>
+      <li><a href="product.html">Products</a></li>
+      <li><a href="gallery.html">Our Gallery</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </header>
+
+  <!-- Mobile Slide Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="close-btn" id="closeBtn"><i class="fa-solid fa-xmark"></i></div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="mobile-dropdown">
+  <a href="#" class="mobileDropdownToggle">
+    Industry <i class="fa-solid fa-chevron-down"></i>
+  </a>
+  <ul class="mobile-dropdown-content">
+    <li><a href="food_industry.html">Food Industry</a></li>
+    <li><a href="beverage_Industry.html">Beverage Industry</a></li>
+    <li><a href="pharmaceutical_Cosmetics.html">Pharmaceutical, Cosmetics & Personal Care</a></li>
+    <li><a href="building_Materials.html">Building Materials</a></li>
+  </ul>
+</li>
+
+      <li><a href="product.html">Products</a></li>
+      <li><a href="gallery.html">Our Gallery</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const closeBtn = document.getElementById("closeBtn");
+
+    // Open menu
+    hamburger.addEventListener("click", () => {
+      mobileMenu.classList.add("active");
+    });
+
+    // Close menu
+    closeBtn.addEventListener("click", () => {
+      mobileMenu.classList.remove("active");
+    });
+
+    // Dropdown toggle (Initially Closed)
+    // Dropdown toggle (Initially Closed)
+document.querySelectorAll(".mobileDropdownToggle").forEach(toggle => {
+  toggle.addEventListener("click", (e) => {
+    e.preventDefault();
+    const parent = toggle.parentElement; // li.mobile-dropdown
+    
+    // close any other open dropdowns
+    document.querySelectorAll(".mobile-dropdown").forEach(drop => {
+      if (drop !== parent) {
+        drop.classList.remove("open");
+      }
+    });
+
+    // toggle current dropdown
+    parent.classList.toggle("open");
+  });
+});
+</script>
+
+  <!-- Gallery Hero Section -->
+      <section class="hero-section">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>About Us</h1>
+      <p>Showcasing Our Range of Printers & Printing Solutions</span></p>
+    </div>
+  </section>
+
+<!-- Our Story Section -->
+
+  <section class="about-section">
+    <!-- Left Side Content -->
+    <div class="about-text">
+      <h2>GAURI INKK–TEC PRIVATE LIMITED</h2>
+      <div class="underline"></div>
+      <p>
+        Established as a Pvt. Limited Company firm in the year 2014 at Pune (Maharashtra, India), We “Gauri Inkk-Tec Private Limited” are a leading Wholesaler Trader and Service Provider of a wide range of Continuous Inkjet Printer And Thermal Inkjet Printers etc. Apart from this we also provide Barcode Printing Service.
+      </p>
+      <p>
+        We offer these products at reasonable rates and deliver these within the promised time-frame. Under the headship of “Mr. Mukund Naik” , we have gained a huge clientele across the nation
+      </p>
+    </div>
+
+    <!-- Right Side Image -->
+    <div class="about-image">
+      <img src="images/company_img1.webp" alt="Printer Image">
+    </div>
+  </section>
+
+  <script>
+    // Agar aapko underline animation chahiye to JS se add kar sakte ho
+    document.addEventListener("DOMContentLoaded", () => {
+      const underline = document.querySelector(".underline");
+      underline.style.width = "0";
+      setTimeout(() => {
+        underline.style.transition = "width 1s ease";
+        underline.style.width = "60px";
+      }, 200);
+    });
+  </script>
+
+
+<!-- Factsheet Section -->
+
+  <section class="factsheet">
+    <h2>Company Factsheet</h2>
+    <hr>
+    <div class="factsheet-content">
+      <!-- Left Column -->
+      <div class="col">
+        <p><strong>Nature of Business:</strong> <span>Trader - Retailer</span></p>
+        <p><strong>Additional Business:</strong> <span>Office / Sale Office</span></p>
+        <p><strong>CEO:</strong> <span>Mukund Naik</span></p>
+        <p><strong>Total Employees:</strong> <span>26 to 50 People</span></p>
+        <p><strong>GST Registration Date:</strong> <span>01-07-2017</span></p>
+        <p><strong>Legal Status:</strong> <span>Limited Company</span></p>
+      </div>
+
+      <!-- Right Column -->
+      <div class="col">
+        <p><strong>CIN No.:</strong> <span>U74999PN2017PTC169024</span></p>
+        <p><strong>GST No.:</strong> <span>27AAGCG7061C1ZR</span></p>
+        <p><strong>GST Name:</strong> <span>Daiva Mukund Naik, Mukund Kamalakant Naik, Sunita Machindra Bhalsing, Machindra Bhalsing</span></p>
+        <p><strong>Payment Mode:</strong> <span>Cash/Cheque/Online</span></p>
+        <p><strong>Shipment Mode:</strong> <span>By Road</span></p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Company Album Section -->
+
+
+  <section class="company-section">
+    <h2>Company Album</h2>
+    <div class="underline"></div>
+
+    <div class="album-gallery">
+      <img src="images/company_img1.webp" alt="Company Building">
+      <img src="images/company_img2.webp" alt="Company Office">
+      <img src="images/company_img3.webp" alt="Company Storage">
+    </div>
+  </section>
+
+  <script>
+    // Optional JS for underline animation
+    document.addEventListener("DOMContentLoaded", () => {
+      const underline = document.querySelector(".underline");
+      underline.style.width = "0";
+      setTimeout(() => {
+        underline.style.transition = "width 1s ease";
+        underline.style.width = "60px";
+      }, 200);
+    });
+  </script>  
+
+<!-- Footer -->
+<div id="footer-container"></div>
+<script src="footer.js"></script>  
+<script src="navbar.js"></script>
+</body>
+</html>

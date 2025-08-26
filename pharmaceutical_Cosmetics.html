@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Manufacturing Excellence</title>
+  <link rel="stylesheet" href="industry_style.css">
+</head>
+<body>
+<!-- Navbar -->
+
+  <header class="navbar">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="index.html"><img src="images/logo.webp" alt="Logo"></a>
+    </div>
+
+    <!-- Hamburger -->
+    <div class="hamburger" id="hamburger">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <!-- Desktop Menu -->
+    <ul class="menu">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="dropdown">
+        <a href="#">Industry <i class="fa-solid fa-chevron-down"></i></a>
+        <ul class="dropdown-content">
+          <li><a href="food_industry.html">Food Industry</a></li>
+          <li><a href="beverage_Industry.html">Beverage Industry</a></li>
+          <li><a href="pharmaceutical_Cosmetics.html">Pharmaceutical, Cosmetics & Personal Care</a></li>
+          <li><a href="building_Materials.html">Building Materials</a></li>
+        </ul>
+      </li>
+      <li><a href="product.html">Products</a></li>
+      <li><a href="gallery.html">Our Gallery</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </header>
+
+  <!-- Mobile Slide Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="close-btn" id="closeBtn"><i class="fa-solid fa-xmark"></i></div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="mobile-dropdown">
+  <a href="#" class="mobileDropdownToggle">
+    Industry <i class="fa-solid fa-chevron-down"></i>
+  </a>
+  <ul class="mobile-dropdown-content">
+    <li><a href="food_industry.html">Food Industry</a></li>
+    <li><a href="beverage_Industry.html">Beverage Industry</a></li>
+    <li><a href="pharmaceutical_Cosmetics.html">Pharmaceutical, Cosmetics & Personal Care</a></li>
+    <li><a href="building_Materials.html">Building Materials</a></li>
+  </ul>
+</li>
+
+      <li><a href="product.html">Products</a></li>
+      <li><a href="gallery.html">Our Gallery</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const closeBtn = document.getElementById("closeBtn");
+
+    // Open menu
+    hamburger.addEventListener("click", () => {
+      mobileMenu.classList.add("active");
+    });
+
+    // Close menu
+    closeBtn.addEventListener("click", () => {
+      mobileMenu.classList.remove("active");
+    });
+
+    // Dropdown toggle (Initially Closed)
+    // Dropdown toggle (Initially Closed)
+document.querySelectorAll(".mobileDropdownToggle").forEach(toggle => {
+  toggle.addEventListener("click", (e) => {
+    e.preventDefault();
+    const parent = toggle.parentElement; // li.mobile-dropdown
+    
+    // close any other open dropdowns
+    document.querySelectorAll(".mobile-dropdown").forEach(drop => {
+      if (drop !== parent) {
+        drop.classList.remove("open");
+      }
+    });
+
+    // toggle current dropdown
+    parent.classList.toggle("open");
+  });
+});
+</script>
+
+
+  <div class="container">
+    <h4>Pharmaceutical, Cosmetics & Personal Care</h4>
+    <h1>
+      Pharmaceutical, Cosmetics, and Personal Care Industry
+    </h1>
+    <p class="subtitle">
+     MapleJet has developed machines that produce high-quality coding print that complements product design in the Cosmetics and Pharma industries. The coding printers are used for printing barcodes, batch numbers, logos, and product information on rigid plastic containers, cosmetic boxes, pouches, etc. for various personal care and cosmetic products.
+    </p>
+
+    <div class="card-container">
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="package_product/4.png" alt="Shelf Display">
+        <div class="card-content">
+          <h3>Pharmaceutical Bottles</h3>
+          <p>High-precision coding solutions for pharmaceutical bottles with regulatory compliance.</p>
+          <div class="features">
+            <span>Regulatory Compliant </span>
+            <span>High Resolution</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <img src="package_product/9.webp" alt="Bread and Baked Goods">
+        <div class="card-content">
+          <h3>Blister Packs</h3>
+          <p>Precise batch and expiry coding for pharmaceutical blister packs.</p>
+          <div class="features">
+            <span>Tamper-evident</span>
+            <span>Fast Production Speed</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <img src="package_product/4.png" alt="Eggs and Dairy">
+        <div class="card-content">
+          <h3>Medicine Boxes</h3>
+          <p>High-contrast coding for pharmaceutical cartons with excellent readability.</p>
+          <div class="features">
+            <span>QR Code Compatible</span>
+            <span>Anti-counterfeit Features</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- Footer -->
+<div id="footer-container"></div>
+<script src="footer.js"></script>  
+</body>
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GauriInk</title>
+    <link rel="stylesheet" href="product.css">
+    <link rel="icon" href="images/logo.webp">
+</head>
+<body>
+<!-- Navbar -->
+<!-- <div id="navbar-container"></div>  -->
+
+
+  <header class="navbar">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="index.html"><img src="images/logo.webp" alt="Logo"></a>
+    </div>
+
+    <!-- Hamburger -->
+    <div class="hamburger" id="hamburger">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <!-- Desktop Menu -->
+    <ul class="menu">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="dropdown">
+        <a href="#">Industry <i class="fa-solid fa-chevron-down"></i></a>
+        <ul class="dropdown-content">
+          <li><a href="food_industry.html">Food Industry</a></li>
+          <li><a href="beverage_Industry.html">Beverage Industry</a></li>
+          <li><a href="pharmaceutical_Cosmetics.html">Pharmaceutical, Cosmetics & Personal Care</a></li>
+          <li><a href="building_Materials.html">Building Materials</a></li>
+        </ul>
+      </li>
+      <li><a href="product.html">Products</a></li>
+      <li><a href="gallery.html">Our Gallery</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </header>
+
+  <!-- Mobile Slide Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="close-btn" id="closeBtn"><i class="fa-solid fa-xmark"></i></div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="mobile-dropdown">
+  <a href="#" class="mobileDropdownToggle">
+    Industry <i class="fa-solid fa-chevron-down"></i>
+  </a>
+  <ul class="mobile-dropdown-content">
+    <li><a href="food_industry.html">Food Industry</a></li>
+    <li><a href="beverage_Industry.html">Beverage Industry</a></li>
+    <li><a href="pharmaceutical_Cosmetics.html">Pharmaceutical, Cosmetics & Personal Care</a></li>
+    <li><a href="building_Materials.html">Building Materials</a></li>
+  </ul>
+</li>
+
+      <li><a href="product.html">Products</a></li>
+      <li><a href="gallery.html">Our Gallery</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const closeBtn = document.getElementById("closeBtn");
+
+    // Open menu
+    hamburger.addEventListener("click", () => {
+      mobileMenu.classList.add("active");
+    });
+
+    // Close menu
+    closeBtn.addEventListener("click", () => {
+      mobileMenu.classList.remove("active");
+    });
+
+    // Dropdown toggle (Initially Closed)
+    // Dropdown toggle (Initially Closed)
+document.querySelectorAll(".mobileDropdownToggle").forEach(toggle => {
+  toggle.addEventListener("click", (e) => {
+    e.preventDefault();
+    const parent = toggle.parentElement; // li.mobile-dropdown
+    
+    // close any other open dropdowns
+    document.querySelectorAll(".mobile-dropdown").forEach(drop => {
+      if (drop !== parent) {
+        drop.classList.remove("open");
+      }
+    });
+
+    // toggle current dropdown
+    parent.classList.toggle("open");
+  });
+});
+</script>
+
+  <!-- Gallery Hero Section -->
+      <section class="hero-section">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>Premium Printing Solutions</h1>
+      <p>Discover our comprehensive range of cutting-edge industrial printing technologies</span></p>
+    </div>
+  </section>
+  
+
+  <!-- Product Section -->
+
+     <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab active" data-category="all">All Products</button>
+    <button class="tab" data-category="cij">CIJ Printers</button>
+    <button class="tab" data-category="tij">TIJ Printers</button>
+    <button class="tab" data-category="laser">Laser Systems</button>
+    <button class="tab" data-category="handheld">Handheld Devices</button>
+    <button class="tab" data-category="industrial">Industrial Printers</button>
+  </div>
+
+  <!-- Product Cards -->
+  <div class="products">
+    <!-- CIJ Product -->
+    <div class="product-card" data-category="cij">
+      <img src="product_images/citronix cij.png" alt="Citronix CIJ Printer">
+      <h3>Citronix CIJ Printer</h3>
+      <p>
+        Advanced continuous inkjet printer with superior reliability and print quality. Perfect for high-speed production environments.
+      </p>
+      <ul>
+        <li>High-speed printing up to 1000ft/min</li>
+        <li>IP55 rated stainless steel cabinet</li>
+        <li>Smart maintenance system</li>
+        <li>Multi-line coding capability</li>
+      </ul>
+      <button class="btn" onclick="redirectToContact(this)">Yes I'm Interested!</button>
+    </div>
+
+    <!-- TIJ Product -->
+    <div class="product-card" data-category="tij">
+      <img src="product_images/Citronix TIJ.png" alt="Citronix TIJ Printer">
+      <h3>Citronix TIJ Printer</h3>
+      <p>
+        High-resolution thermal inkjet printer for precise and reliable coding applications.
+      </p>
+      <ul>
+        <li>High-resolution printing</li>
+        <li>Maintenance-free operation</li>
+        <li>Quick cartridge replacement</li>
+        <li>User-friendly interface</li>
+      </ul>
+      <button class="btn" onclick="redirectToContact(this)">Yes I'm Interested!</button>
+    </div>
+
+
+    <div class="product-card" data-category="tij">
+      <img src="product_images/HX NITRO TIJ.png" alt="Citronix TIJ Printer">
+      <h3>HX NITRO TIJ</h3>
+      <p>
+       Advanced thermal inkjet printer for high-resolution coding needs.
+      </p>
+      <ul>
+        <li>Ultra-high resolution</li>
+        <li>Fast-drying ink system</li>
+        <li>Compact design</li>
+        <li>Zero maintenance</li>
+      </ul>
+      <button class="btn" onclick="redirectToContact(this)">Yes I'm Interested!</button>
+    </div>
+
+
+    <div class="product-card" data-category="tij">
+      <img src="product_images/POLYTIJ ILLUMEX TIJ    X2 X4 ECO.png" alt="Citronix TIJ Printer">
+      <h3>POLYTIJ ILLUMEX TIJ</h3>
+      <p>
+        Eco-friendly thermal inkjet printer with multiple configuration options.
+      </p>
+      <ul>
+        <li>Eco-friendly design</li>
+        <li>Multiple configurations</li>
+        <li>High-quality output</li>
+        <li>Cost-effective</li>
+      </ul>
+      <button class="btn" onclick="redirectToContact(this)">Yes I'm Interested!</button>
+    </div>
+
+    <!-- Laser System Product -->
+    <div class="product-card" data-category="laser">
+      <img src="product_images/LASER PRINTER CO2 FIBER UV FIBER.png" alt="Laser System">
+      <h3>Advanced Laser System</h3>
+      <p>
+        Versatile laser marking solution available in CO2, Fiber, and UV configurations.
+      </p>
+      <ul>
+        <li>Multiple laser sources</li>
+        <li>Permanent marking</li>
+        <li>High-speed capability</li>
+        <li>Network integration</li>
+      </ul>
+      <button class="btn" onclick="redirectToContact(this)">Yes I'm Interested!</button>
+    </div>
+
+    <!-- Handheld Device Product -->
+    <div class="product-card" data-category="handheld">
+      <img src="product_images/HANDCODER.png" alt="Handheld Printer">
+      <h3>Portable Handcoder</h3>
+      <p>
+        Versatile handheld coding solution for flexible marking requirements.
+      </p>
+      <ul>
+        <li>Ergonomic design</li>
+        <li>Quick-change cartridge</li>
+        <li>Multiple font sizes</li>
+        <li>Portable operation</li>
+      </ul>
+      <button class="btn" onclick="redirectToContact(this)">Yes I'm Interested!</button>
+    </div>
+
+
+    <div class="product-card" data-category="handheld">
+      <img src="product_images/HANDHELD LASER.png" alt="Handheld Printer">
+      <h3>Handheld Laser Marker</h3>
+      <p>
+        Portable laser marking solution for precise and permanent marking on various materials.
+      </p>
+      <ul>
+        <li>Portable laser marking</li>
+        <li>Permanent marking</li>
+        <li>Multiple material support</li>
+        <li>Safety features</li>
+      </ul>
+      <button class="btn" onclick="redirectToContact(this)">Yes I'm Interested!</button>
+    </div>
+
+
+    <div class="product-card" data-category="handheld">
+      <img src="product_images/MINICODER.png" alt="Handheld Printer">
+      <h3>MINICODER</h3>
+      <p>
+        Compact and portable coding solution for small-scale marking needs.
+      </p>
+      <ul>
+        <li>Compact size</li>
+        <li>Easy to use</li>
+        <li>Battery operated</li>
+        <li>Multiple ink options</li>
+      </ul>
+      <button class="btn" onclick="redirectToContact(this)">Yes I'm Interested!</button>
+    </div>
+
+    <!-- Industrial Printers -->
+
+    <div class="product-card" data-category="industrial">
+      <img src="product_images/FAMJET MAKRO LCP.png" alt="FAMJET MAKRO LCP">
+      <h3>FAMJET MAKRO LCP</h3>
+      <p>
+        High-performance large character printer for industrial packaging and coding applications.
+      </p>
+      <ul>
+        <li>Large format printing</li>
+        <li>Multiple printhead configuration</li>
+        <li>Robust industrial design</li>
+        <li>Advanced touch interface</li>
+      </ul>
+      <button class="btn" onclick="redirectToContact(this)">Yes I'm Interested!</button>
+    </div>
+
+
+    <div class="product-card" data-category="industrial">
+      <img src="product_images/FOENIX FX ONE (CARTON CODING).png" alt="FAMJET MAKRO LCP">
+      <h3>FOENIX FX ONE Carton Coder</h3>
+      <p>
+        Specialized carton coding solution for precise and consistent marking on packaging materials.
+      </p>
+      <ul>
+        <li>Dedicated carton coding</li>
+        <li>High-speed operation</li>
+        <li>Easy maintenance</li>
+        <li>Consistent print quality</li>
+      </ul>
+      <button class="btn" onclick="redirectToContact(this)">Yes I'm Interested!</button>
+    </div>
+
+
+    <div class="product-card" data-category="industrial">
+      <img src="product_images/HX CARTRO CARTON CODING.png" alt="FAMJET MAKRO LCP">
+      <h3>HX CARTRO Carton Coder</h3>
+      <p>
+        Advanced carton coding system for high-quality package marking.
+      </p>
+      <ul>
+        <li>Specialized carton coding</li>
+        <li>High resolution</li>
+        <li>Fast printing speed</li>
+        <li>Easy integration</li>
+      </ul>
+      <button class="btn" onclick="redirectToContact(this)">Yes I'm Interested!</button>
+    </div>
+
+
+    <div class="product-card" data-category="industrial">
+      <img src="product_images/HX MEGALO 70MM PRINTER.png" alt="FAMJET MAKRO LCP">
+      <h3>HX MEGALO 70MM Printer</h3>
+      <p>
+        Wide-format industrial printer for large character printing applications.
+      </p>
+      <ul>
+        <li>70mm print width</li>
+        <li>Industrial-grade build</li>
+        <li>Multiple font options</li>
+        <li>High-speed printing</li>
+      </ul>
+      <button class="btn" onclick="redirectToContact(this)">Yes I'm Interested!</button>
+    </div>
+
+
+    <div class="product-card" data-category="industrial">
+      <img src="product_images/TTO PRINTER.png" alt="FAMJET MAKRO LCP">
+      <h3>TTO Printer</h3>
+      <p>
+        Thermal Transfer Overprinting solution for flexible packaging applications.
+      </p>
+      <ul>
+        <li>High-quality coding</li>
+        <li>Flexible packaging</li>
+        <li>Quick ribbon change</li>
+        <li>Low maintenance</li>
+      </ul>
+      <button class="btn" onclick="redirectToContact(this)">Yes I'm Interested!</button>
+    </div>
+
+
+    <div class="product-card" data-category="industrial">
+      <img src="product_images/ThermalInkjetPrintersTij.webp" alt="FAMJET MAKRO LCP">
+      <h3>Thermal Inkjet Printer</h3>
+      <p>
+        Experience next-generation thermal printing technology. Ideal for pharmaceutical and food packaging with its clean, cartridge-based system and HD resolution.
+      </p>
+      <ul>
+        <li>High-Quality Prints</li>
+        <li>Compact design</li>
+        <li>Cost-Effective</li>
+        <li>Advanced touch interface</li>
+      </ul>
+      <button class="btn" onclick="redirectToContact(this)">Yes I'm Interested!</button>
+    </div>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll(".tab");
+    const products = document.querySelectorAll(".product-card");
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        // Active tab highlight
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        const category = tab.getAttribute("data-category");
+
+        products.forEach(product => {
+          if (category === "all" || product.getAttribute("data-category") === category) {
+            product.classList.remove("hidden");
+          } else {
+            product.classList.add("hidden");
+          }
+        });
+      });
+    });
+  </script>
+
+ <script>
+  function redirectToContact(button) {
+    const productTitle = button.closest(".product-card").querySelector("h3").innerText;
+    // Redirect with subject + anchor directly to form section
+    window.location.href = `contact.html?subject=${encodeURIComponent(productTitle)}#form-section`;
+  }
+</script>
+
+  
+<!-- Footer -->
+<div id="footer-container"></div>
+<script src="footer.js"></script>   
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GauriInk</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/logo.webp">
+</head>
+<body>
+<!-- Navbar -->
+<!-- <div id="navbar-container"></div>  -->
+
+  <header class="navbar">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="index.html"><img src="images/logo.webp" alt="Logo"></a>
+    </div>
+
+    <!-- Hamburger -->
+    <div class="hamburger" id="hamburger">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <!-- Desktop Menu -->
+    <ul class="menu">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="dropdown">
+        <a href="#">Industry <i class="fa-solid fa-chevron-down"></i></a>
+        <ul class="dropdown-content">
+          <li><a href="food_industry.html">Food Industry</a></li>
+          <li><a href="beverage_Industry.html">Beverage Industry</a></li>
+          <li><a href="pharmaceutical_Cosmetics.html">Pharmaceutical, Cosmetics & Personal Care</a></li>
+          <li><a href="building_Materials.html">Building Materials</a></li>
+        </ul>
+      </li>
+      <li><a href="product.html">Products</a></li>
+      <li><a href="gallery.html">Our Gallery</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </header>
+
+  <!-- Mobile Slide Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="close-btn" id="closeBtn"><i class="fa-solid fa-xmark"></i></div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="mobile-dropdown">
+  <a href="#" class="mobileDropdownToggle">
+    Industry <i class="fa-solid fa-chevron-down"></i>
+  </a>
+  <ul class="mobile-dropdown-content">
+    <li><a href="food_industry.html">Food Industry</a></li>
+    <li><a href="beverage_Industry.html">Beverage Industry</a></li>
+    <li><a href="pharmaceutical_Cosmetics.html">Pharmaceutical, Cosmetics & Personal Care</a></li>
+    <li><a href="building_Materials.html">Building Materials</a></li>
+  </ul>
+</li>
+
+      <li><a href="product.html">Products</a></li>
+      <li><a href="gallery.html">Our Gallery</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const closeBtn = document.getElementById("closeBtn");
+
+    // Open menu
+    hamburger.addEventListener("click", () => {
+      mobileMenu.classList.add("active");
+    });
+
+    // Close menu
+    closeBtn.addEventListener("click", () => {
+      mobileMenu.classList.remove("active");
+    });
+
+    // Dropdown toggle (Initially Closed)
+    // Dropdown toggle (Initially Closed)
+document.querySelectorAll(".mobileDropdownToggle").forEach(toggle => {
+  toggle.addEventListener("click", (e) => {
+    e.preventDefault();
+    const parent = toggle.parentElement; // li.mobile-dropdown
+    
+    // close any other open dropdowns
+    document.querySelectorAll(".mobile-dropdown").forEach(drop => {
+      if (drop !== parent) {
+        drop.classList.remove("open");
+      }
+    });
+
+    // toggle current dropdown
+    parent.classList.toggle("open");
+  });
+});
+</script>
+
+
+<!-- Hero Section -->
+
+    <section id="home" class="hero-slider">
+        <div class="slider-container">
+
+            <div class="slide active">
+                <div class="slide-content">
+                    <h1>Innovation in Every Drop</h1>
+                    <p>Redefining inkjet and barcode printing solutions since 2014</p>
+                    <!-- <a href="#contact" class="cta-button">Get in Touch</a> -->
+                </div>
+                <div class="slide-bg" style="background-image: url('images/banner6.webp')"></div>
+            </div>
+            <div class="slide">
+                <div class="slide-content">
+                    <h1>Precision You Can Trust</h1>
+                    <p>Delivering advanced printing technology with speed and reliability</p>
+                    <!-- <a href="#products" class="cta-button">View Products</a> -->
+                </div>
+                <div class="slide-bg" style="background-image: url('images/banner2.jpg')"></div>
+            </div>
+            <div class="slide">
+                <div class="slide-content">
+                    <h1>Printing the Future</h1>
+                    <p>Continuous inkjet, thermal inkjet, and barcode printing services made seamless</p>
+                    <!-- <a href="#contact" class="cta-button">Contact Us</a> -->
+                </div>
+                <div class="slide-bg" style="background-image: url('images/banner7.webp')"></div>
+            </div>
+            <div class="slide ">
+                <div class="slide-content">
+                    <h1>Crafting Colors of Excellence</h1>
+                    <p>Premium inks for premium results</p>
+                    <!-- <a href="#products" class="cta-button">Explore Our Range</a> -->
+                </div>
+                <div class="slide-bg" style="background-image: url('images/banner4.webp')"></div>
+            </div>
+        </div>
+
+        <!-- Slider Navigation -->
+        <div class="slider-nav">
+            <!-- <button class="prev-slide"><i class="fas fa-chevron-left"></i></button> -->
+            <div class="slide-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <!-- <button class="next-slide"><i class="fas fa-chevron-right"></i></button> -->
+        </div>
+    </section>
+
+
+<!-- Product Section -->
+
+  <section class="trending-header">
+    <h2>Our Featured Products</h2>
+    <p>Explore our best-selling printers and solutions designed to meet diverse industrial and commercial needs.</p>
+  </section>
+
+  <div class="carousel-container">
+    <button class="nav-btn left-btn">&#8249;</button>
+    <div class="product-carousel" id="productSlider">
+      <div class="product-card">
+        <img src="product_images/citronix cij.png" alt="iRobo Ultima Massage Chair" />
+        <h3>Citronix CIJ Printer</h3>
+        <p class="category">Advanced continuous inkjet printer with superior reliability and print quality.</p>
+        <!-- <a href="#" class="view-more-btn">View More</a> -->
+      </div>
+
+      <div class="product-card">
+        <img src="product_images/Citronix TIJ.png" alt="iRobo iDream Massage Chair" />
+        <h3>Citronix TIJ Printer</h3>
+        <p class="category">High-resolution thermal inkjet printer for precise and reliable coding applications.</p>
+        <!-- <a href="#" class="view-more-btn">View More</a> -->
+      </div>
+
+      <div class="product-card">
+        <img src="product_images/HX CARTRO CARTON CODING.png" alt="iRobo iElegant Massage Chair" />
+        <h3>HX CARTRO Carton Coder</h3>
+        <p class="category">Advanced carton coding system for high-quality package marking.</p>
+        <!-- <a href="#" class="view-more-btn">View More</a> -->
+      </div>
+
+      <div class="product-card">
+        <img src="product_images/HX NITRO TIJ.png" alt="iRobo iRoyal Massage Chair" />
+        <h3>HX NITRO TIJ</h3>
+        <p class="category">Advanced thermal inkjet printer for high-resolution coding needs.</p>
+        <!-- <a href="#" class="view-more-btn">View More</a> -->
+      </div>
+
+      <div class="product-card">
+        <img src="product_images/HANDCODER.png" alt="iRobo Ultima Massage Chair" />
+        <h3>Thermal Inkjet Printer</h3>
+        <p class="category">Ideal for pharmaceutical and food packaging with its clean, cartridge-based system and HD resolution.</p>
+        <!-- <a href="#" class="view-more-btn">View More</a> -->
+      </div>
+    </div>
+    <a href="product.html" class="product-btn">Explore All Products →</a>
+    <button class="nav-btn right-btn">&#8250;</button>
+  </div>
+  
+
+
+<!-- About Section -->
+
+ <section class="about-section">
+    <!-- Left Content -->
+    <div class="about-content">
+      <h2>Gauri Inkk-Tec Private Limited</h2>
+      <div class="underline"></div>
+      <p>
+        Established as a Pvt. Limited Company firm in the year 2014 at Pune (Maharashtra, India), 
+        We "Gauri Inkk-Tec Private Limited" are a leading Wholesaler Trader and Service Provider of a wide range of 
+        Continuous Inkjet Printer And Thermal Inkjet Printers etc. Apart from this we also provide Barcode Printing Service.
+      </p>
+      <p>
+        We offer these products at reasonable rates and deliver these within the promised time-frame. 
+        Under the headship of <span>"Mr. Mukund Naik"</span>, we have gained a huge clientele across the nation.
+      </p>
+
+      <!-- Features -->
+      <!-- <div class="features">
+        <div class="feature-badge">
+          <i class="fa-solid fa-check-circle"></i>
+          Premium Quality Products
+        </div>
+        <div class="feature-badge">
+          <i class="fa-solid fa-clock"></i>
+          Timely Delivery
+        </div>
+        <div class="feature-badge">
+          <i class="fa-solid fa-users"></i>
+          Dedicated Team
+        </div>
+      </div> -->
+      <a class="about-btn" href="about.html">Learn More</a>
+    </div>
+
+    <!-- Right Image -->
+    <div class="about-image">
+      <img src="images/company_img1.webp" alt="Office Image">
+      <div class="experience-badge">
+        11+ <br> <span>Years of Excellence</span>
+      </div>
+    </div>
+  </section>
+
+
+<!-- Packeging Section -->
+
+ <section class="section">
+    <h1>Your Printing Solution for Every Packaging Material</h1>
+    <h2>Primary & Secondary Packaging Application</h2>
+    <div class="scroller-container">
+      <button class="scroll-btn left" onclick="goLeft()">&#10094;</button>
+      <div class="image-grid" id="imageGrid">
+        <div class="card"><img src="package_product/1.webp" alt="Packaging 1"></div>
+        <div class="card"><img src="package_product/2.webp" alt="Packaging 2"></div>
+        <div class="card"><img src="package_product/3.webp" alt="Packaging 3"></div>
+        <div class="card"><img src="package_product/4.png" alt="Packaging 4"></div>
+        <div class="card"><img src="package_product/5.webp" alt="Packaging 1"></div>
+        <div class="card"><img src="package_product/6.webp" alt="Packaging 2"></div>
+        <div class="card"><img src="package_product/7.webp" alt="Packaging 3"></div>
+        <div class="card"><img src="package_product/8.webp" alt="Packaging 4"></div>
+        <div class="card"><img src="package_product/9.webp" alt="Packaging 4"></div>
+        <div class="card"><img src="package_product/10.webp" alt="Packaging 4"></div>
+        <div class="card"><img src="package_product/11.webp" alt="Packaging 4"></div>
+        <div class="card"><img src="package_product/12.webp" alt="Packaging 4"></div>
+        <div class="card"><img src="package_product/13.webp" alt="Packaging 4"></div>
+        <!-- Add more cards if needed -->
+      </div>
+      <button class="scroll-btn right" onclick="goRight()">&#10095;</button>
+    </div>
+  </section>
+
+  <script>
+   const imageGrid = document.getElementById("imageGrid");
+
+  function goLeft() {               // <-- renamed
+    imageGrid.scrollBy({ left: -250, behavior: 'smooth' });
+  }
+
+  function goRight() {              // <-- renamed
+    imageGrid.scrollBy({ left: 250, behavior: 'smooth' });
+  }
+  </script>
+  
+
+
+
+<!-- Why choose Section -->
+
+  <section class="features-section">
+    <div class="features-container">
+      
+      <!-- Feature 1 -->
+      <div class="feature">
+        <i class="fa-solid fa-thumbs-up"></i>
+        <h3>Quality Assurance</h3>
+        <p>
+          We deliver only the best-in-class Continuous Inkjet Printers, Thermal Inkjet Printers, and Barcode Printing solutions that meet international standards.
+        </p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="feature">
+        <i class="fa-solid fa-tags"></i>
+        <h3>Competitive Pricing</h3>
+        <p>
+          Our products and services are offered at reasonable rates, ensuring maximum value without compromising on quality.
+        </p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="feature">
+        <i class="fa-solid fa-puzzle-piece"></i>
+        <h3>Custom Solutions</h3>
+        <p>
+        Whether it’s printers, barcode services, or accessories, we adapt our offerings to fit your unique business requirements.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- Citronix Section -->
+
+  <section class="about-section">
+    <!-- Left text -->
+    <div class="about-text">
+      <h2>About Citronix</h2>
+      <p>
+        Established in 2000, Citronix is a world-class manufacturer of Continuous Inkjet and Thermal Inkjet printers headquartered in Texas, USA. Citronix's printers are sold through a strong network of distributors and are renowned in the industry for their simplicity, reliability, capability and excellent value that offer to our customers.
+      </p>
+
+      <!-- <div class="stats">
+        <div class="stat">
+          <h3>135+</h3>
+          <p>Countries Served</p>
+        </div>
+        <div class="stat">
+          <h3>25+</h3>
+          <p>Years of Excellence</p>
+        </div>
+        <div class="stat">
+          <h3>30</h3>
+          <p>Months Warranty</p>
+        </div>
+      </div> -->
+
+      <div class="journey">
+        <h3>Our Journey in India</h3>
+        <p>
+          In India, Citronix began its operations in 2015 with a single distributor and today has more than eight distributors across the country. All of these distributors are trained by Citronix's technical manager in India and are fully equipped to meet your simple to complex application requirements with an excellent after-sales support system in place.
+        </p>
+
+        <div class="features">
+          <div class="feature-card">
+            <h4>🧪 Premium Ink Solutions</h4>
+            <p>
+              Complete range of inks suitable for all printing applications, with unmatched print quality and performance.
+            </p>
+          </div>
+          <div class="feature-card">
+            <h4>🛡 Industry-Leading Warranty</h4>
+            <p>
+              30 months warranty from the date of manufacturing, ensuring complete peace of mind for our customers.
+            </p>
+          </div>
+          <div class="feature-card">
+            <h4>🛠 Expert Support</h4>
+            <p>
+              Dedicated technical support team providing comprehensive installation and maintenance services.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right images -->
+    <div class="about-images">
+      <img src="images/Citronics-b2.jpg" alt="Printer 1">
+      <img src="images/Citronics-b3.jpg" alt="Printer 2">
+      <img src="images/Citronics-b6.jpg" alt="Printer 3">
+    </div>
+  </section>
+
+<!-- Contact Section -->
+
+<section class="hero-section">
+    <div class="hero-text">
+      <h1>
+        <span class="red">We’re Here to Help</span><br>
+      </h1>
+      <p>
+        Reach out for product inquiries, service support, or customized printing solutions—our team is here to assist you.
+      </p>
+      <a href="contact.html">Connect with Us</a>
+    </div>
+    <div class="hero-image">
+      <img src="images/banner2.jpg" alt="Paving Image">
+    </div>
+  </section>
+
+
+<!-- Footer -->
+<div id="footer-container"></div>
+<script src="footer.js"></script>  
+<script src="script.js"></script>
+</body>
+</html>

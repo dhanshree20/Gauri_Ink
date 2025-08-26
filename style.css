@@ -1,0 +1,1324 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+
+
+/* Navbar */
+
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Roboto", sans-serif;
+    }
+
+    /* Navbar container */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+    }
+
+    /* Logo */
+    .logo img {
+      height: 60px;
+      width: auto;
+      margin-left: 20px;
+    }
+
+    /* Desktop Menu */
+    .menu {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    .menu li {
+      position: relative;
+    }
+
+    .menu a {
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+      color: #000;
+      transition: 0.3s;
+    }
+
+    .menu a:hover {
+      color: #daa03f;
+    }
+
+    /* Dropdown (desktop hover) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 25px;
+      left: 0;
+      background: #fff;
+      border: 1px solid #ddd;
+      list-style: none;
+      padding: 10px 0;
+      min-width: 300px;
+      z-index: 100;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content li {
+      padding: 8px 15px;
+    }
+
+    .dropdown-content li a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    .dropdown i {
+      margin-left: 5px;
+      font-size: 12px;
+      transition: transform 0.3s;
+    }
+
+    .dropdown:hover i {
+      transform: rotate(180deg);
+    }
+
+    /* Hamburger (mobile only) */
+    .hamburger {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    /* ===== MOBILE MENU (Slide Drawer) ===== */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 280px;
+      height: 100%;
+      background: #fff;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+      transition: right 0.3s ease-in-out;
+      padding: 20px;
+      z-index: 999;
+      overflow-y: auto;
+    }
+
+    .mobile-menu.active {
+      right: 0;
+      background-color: #daa03f ;
+    }
+
+    .mobile-menu .close-btn {
+      text-align: right;
+      font-size: 24px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    .mobile-menu ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .mobile-menu a {
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+      color: #000;
+      display: block;
+      margin-left: 10px;
+      border-bottom: 1px solid rgba(1, 1, 1, 0.1);
+    }
+
+    .mobile-menu a:hover {
+      color: black;
+    }
+
+    /* Dropdown in Mobile (Initially Hidden) */
+  .mobile-dropdown-content {
+  display: none !important;  /* force hidden */
+  flex-direction: column;
+  padding-left: 15px;
+  gap: 10px;
+}
+
+/* When open class is added */
+.mobile-dropdown.open .mobile-dropdown-content {
+  display: flex !important;
+}
+
+/* Rotate arrow when open */
+.mobile-dropdown.open .fa-chevron-down {
+  transform: rotate(180deg);
+}
+
+    .fa-chevron-down {
+      margin-left: 5px;
+      transition: transform 0.3s ease;
+    }
+
+    /* Hide desktop menu in mobile */
+    @media (max-width: 768px) {
+      .menu {
+        display: none;
+      }
+      .hamburger {
+        display: block;
+      }
+    }
+
+
+/* Hero Section */
+
+.hero-slider {
+    position: relative;
+    height: 80vh;
+    width: 100%;
+    overflow: hidden;
+    
+}
+
+.slider-container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.slide-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7));
+}
+
+.slide-content {
+    text-align: center;
+    color: var(--text-light);
+    max-width: 800px;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+.slide.active .slide-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.slide-content h1 {
+    font-family: "Arimo", sans-serif;
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    color: white;
+}
+
+.slide-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    color: white;
+    font-family: "Arimo", sans-serif;
+}
+
+/* Slider Navigation */
+.slider-nav {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    z-index: 2;
+}
+
+.prev-slide,
+.next-slide {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: var(--text-light);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.prev-slide:hover,
+.next-slide:hover {
+    background: var(--primary-red);
+}
+
+.slide-dots {
+    display: flex;
+    gap: 1rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: #daa03f ;
+    transform: scale(1.2);
+}
+
+/* Responsive Slider */
+@media (max-width: 768px) {
+    .slide-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .slide-content p {
+        font-size: 1.2rem;
+    }
+
+    .slider-nav {
+        bottom: 1rem;
+        gap: 1rem;
+    }
+
+    .prev-slide,
+    .next-slide {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide-content h1 {
+        font-size: 2rem;
+    }
+
+    .slide-content p {
+        font-size: 1rem;
+    }
+}
+
+/* Product Section */
+
+
+body {
+  margin: 0;
+}
+
+.trending-header {
+  text-align: center;
+  padding: 40px 20px 10px;
+}
+
+.trending-header h2 {
+  font-size: 3rem;
+  color: black;
+  margin-bottom: 10px;
+  font-family: "Arimo", sans-serif;
+}
+
+.trending-header p {
+  font-size: 18px;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto;
+  font-family: "Arimo", sans-serif;
+}
+
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  padding: 50px;
+}
+
+.product-carousel {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 20px;
+
+  /* Hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+}
+
+.product-carousel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+
+.product-card {
+  flex: 0 0 280px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: 0.3s ease;
+  padding: 20px;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.category {
+  font-size: 16px;
+  color: #666;
+  margin: 10px 0 5px;
+  font-family: "Arimo", sans-serif;
+}
+
+.product-card h3 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #000;
+  margin: 10px 0;
+  font-family: "Arimo", sans-serif;
+}
+
+.view-more-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff5f00, #ff3c00);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  margin-top: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: Sans-serif;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0.6;
+}
+
+.left-btn {
+  left: 10px;
+  top: 220px;
+}
+
+.right-btn {
+  right: 10px;
+  top: 220px;
+}
+
+.nav-btn:hover {
+  opacity: 1;
+}
+
+.product-btn {
+  text-decoration: none;
+  font-weight: bold;
+  color: #000;
+  font-size: 20px;
+  display: inline-block;
+  margin-top: 10px;
+  font-family: "Arimo", sans-serif;
+  margin-left: 500px;
+}
+
+.product-btn:hover {
+  color: #d9251c;
+}
+
+/* ========== RESPONSIVE CSS ========== */
+
+@media screen and (max-width: 1024px) {
+  .carousel-container {
+    padding: 40px 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .trending-header h2 {
+    font-size: 28px;
+  }
+
+  .trending-header p {
+    font-size: 16px;
+  }
+
+  .product-card {
+    flex: 0 0 240px;
+    padding: 15px;
+  }
+
+  .product-card h3 {
+    font-size: 18px;
+  }
+
+  .product-card img {
+    height: 160px;
+  }
+
+  .nav-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    top: 170px;
+  }
+
+  .product-btn {
+    font-size: 16px;
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .carousel-container {
+    padding: 30px 15px;
+  }
+
+  .product-card {
+    flex: 0 0 220px;
+  }
+
+  .product-card img {
+    height: 140px;
+  }
+
+  .product-btn {
+    font-size: 15px;
+    margin-left: 70px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .product-carousel {
+    scroll-snap-type: x mandatory;
+  }
+
+  .product-card {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+  }
+}
+
+
+
+/* About Section */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .about-section {
+      max-width: 1200px;
+      margin: 50px auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 20px 40px;
+    }
+
+    .about-content {
+      flex: 1;
+    }
+
+    .about-content h2 {
+      font-size: 2.4rem;
+      font-weight: bold;
+      color: black; /* Blue heading */
+      margin-bottom: 10px;
+      font-family: "Arimo", sans-serif;
+    }
+
+    .underline {
+      width: 60px;
+      height: 3px;
+      background: #daa03f ;
+      margin: 10px 0 20px;
+    }
+
+    .about-content p {
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: #444;
+      font-family: "Arimo", sans-serif;
+    }
+
+    .about-content p span {
+      font-weight: bold;
+      color: #0f172a;
+    }
+
+    /* Feature badges */
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .feature-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      padding: 12px 20px;
+      border-radius: 25px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      font-weight: bold;
+      font-size: 14px;
+      color: #111;
+    }
+
+    .feature-badge i {
+      color: #dc413d ;
+      font-size: 18px;
+    }
+
+    .about-btn {
+      text-decoration: none;
+      background: #8b0e0e;
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      padding: 10px 40px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-family: "Arimo", sans-serif;
+    }
+
+    /* Right side image */
+    .about-image {
+      flex: 1;
+      position: relative;
+    }
+
+    .about-image img {
+      width: 90%;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    /* Badge on image */
+    .experience-badge {
+      position: absolute;
+      bottom: -30px;
+      right: 10px;
+      background: #8b0e0e ;
+      color: #fff;
+      padding: 40px 30px;
+      border-radius: 12px;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .experience-badge span {
+      display: block;
+      font-size: 14px;
+      font-weight: normal;
+    }
+
+/* ✅ Responsive Breakpoints */
+
+/* Tablet & below */
+@media (max-width: 992px) {
+  .about-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+  .experience-badge {
+    position: static;
+    margin: 15px auto 0;
+  }
+  .about-content h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Mobile L */
+@media (max-width: 768px) {
+  .about-section {
+    margin: 30px auto;
+    padding: 15px;
+  }
+  .about-content h2 {
+    font-size: 1.8rem;
+  }
+  .about-content p {
+    font-size: 15px;
+  }
+  .about-btn {
+    font-size: 16px;
+    padding: 8px 30px;
+  }
+  .experience-badge {
+    font-size: 16px;
+    padding: 20px;
+  }
+}
+
+/* Mobile M */
+@media (max-width: 576px) {
+  .about-section {
+    gap: 20px;
+  }
+  .about-content h2 {
+    font-size: 1.6rem;
+  }
+  .about-content p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .about-btn {
+    font-size: 15px;
+    padding: 8px 25px;
+  }
+}
+
+/* Mobile S */
+@media (max-width: 400px) {
+  .about-content h2 {
+    font-size: 1.4rem;
+  }
+  .about-content p {
+    font-size: 13px;
+  }
+  .experience-badge {
+    font-size: 14px;
+    padding: 15px;
+  }
+  .underline {
+    margin-left: 110px;
+  }
+}
+
+
+    /* Packeging Section */
+
+
+    .section {
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+    }
+
+    .section h1 {
+      font-size: 2.4rem;
+      font-weight: bold;
+      color: black;
+      margin-bottom: 10px;
+      font-family: "Arimo", sans-serif;
+    }
+
+    .section h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: rgb(89, 88, 88);
+      letter-spacing: 1px;
+      margin-bottom: 30px;
+      font-family: "Arimo", sans-serif;
+    }
+
+    /* Scroll container */
+    .scroller-container {
+      position: relative;
+      overflow: hidden;
+      max-width: 100%;
+    }
+
+    .image-grid {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 10px 40px;
+    }
+
+    .image-grid::-webkit-scrollbar {
+      display: none; /* hide scrollbar */
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      flex: 0 0 auto;
+      width: 220px;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Scroll buttons */
+    .scroll-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      border: none;
+      color: #fff;
+      font-size: 24px;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 10;
+    }
+
+    .scroll-btn.left {
+      left: 0px;
+    }
+
+    .scroll-btn.right {
+      right: 10px;
+    }
+
+    .scroll-btn:hover {
+      background: rgba(0,0,0,0.7);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .section h1 {
+        font-size: 1.5rem;
+      }
+      .section h2 {
+        font-size: 0.9rem;
+      }
+      .card {
+        width: 180px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        width: 150px;
+      }
+    }
+
+
+
+/* Why choose Section */
+
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .features-section {
+      background: #daa03f ;  /* Brown background */
+      color: #fff;
+      padding: 50px 20px;
+    }
+
+    .features-container {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      text-align: center;
+    }
+
+    .feature {
+      padding: 20px;
+    }
+
+    .feature i {
+      font-size: 50px;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .feature h3 {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      font-family: "Arimo", sans-serif;
+      color: white;
+    }
+
+    .feature p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: white;
+      font-family: "Arimo", sans-serif;
+    }
+
+    /* Hover effect (optional) */
+    .feature:hover {
+      transform: translateY(-8px);
+      transition: 0.3s ease;
+    }
+
+/* ✅ Responsive Breakpoints */
+
+/* Tablet & below */
+@media (max-width: 992px) {
+  .features-section {
+    padding: 40px 15px;
+  }
+  .feature i {
+    font-size: 45px;
+  }
+  .feature h3 {
+    font-size: 20px;
+  }
+  .feature p {
+    font-size: 15px;
+  }
+}
+
+/* Mobile L */
+@media (max-width: 768px) {
+  .features-container {
+    gap: 25px;
+  }
+  .feature i {
+    font-size: 40px;
+  }
+  .feature h3 {
+    font-size: 18px;
+  }
+  .feature p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+/* Mobile M */
+@media (max-width: 576px) {
+  .features-section {
+    padding: 30px 12px;
+  }
+  .feature {
+    padding: 15px;
+  }
+  .feature i {
+    font-size: 35px;
+    margin-bottom: 15px;
+  }
+  .feature h3 {
+    font-size: 16px;
+  }
+  .feature p {
+    font-size: 13.5px;
+  }
+}
+
+/* Mobile S */
+@media (max-width: 400px) {
+  .features-section {
+    padding: 25px 10px;
+  }
+  .feature i {
+    font-size: 32px;
+  }
+  .feature h3 {
+    font-size: 15px;
+  }
+  .feature p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+}    
+
+    /* Citronix Section */
+
+ body {
+      margin: 0;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .about-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 40px 20px;
+      align-items: flex-start;
+    }
+
+    .about-text {
+      flex: 1 1 55%;
+    }
+
+    .about-text h2 {
+      font-size: 2.4rem;
+      color: black;
+      font-weight: bold;
+      margin-bottom: 10px;
+      position: relative;
+      font-family: "Arimo", sans-serif;
+    }
+
+    .about-text h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #daa03f ;
+      margin-top: 6px;
+    }
+
+    .about-text p {
+      font-size: 1rem;
+      margin-bottom: 25px;
+      color: #555;
+      font-family: "Arimo", sans-serif;
+    }
+
+    /* Journey Section */
+    .journey h3 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: black;
+      margin-bottom: 10px;
+      font-family: "Arimo", sans-serif;
+    }
+
+    .journey p {
+      margin-bottom: 30px;
+      color: #444;
+      font-family: "Arimo", sans-serif;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: #fff;
+      flex: 1 1 30%;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .feature-card h4 {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: black;
+      font-family: "Arimo", sans-serif;
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      color: #555;
+      font-family: "Arimo", sans-serif;
+    }
+
+    /* Right side images */
+    .about-images {
+      flex: 1 1 40%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .about-images img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+/* ===================
+   ✅ Responsive Design
+   =================== */
+
+/* Tablet & below */
+@media (max-width: 992px) {
+  .about-section {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+  .about-text, .about-images {
+    flex: 1 1 100%;
+  }
+  .about-text h2 {
+    font-size: 2rem;
+  }
+  .journey h3 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Mobile L */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 35px 18px;
+  }
+  .features {
+    flex-direction: column;
+  }
+  .feature-card {
+    flex: 1 1 100%;
+  }
+  .about-text h2 {
+    font-size: 1.8rem;
+  }
+  .about-text p {
+    font-size: 0.95rem;
+  }
+  .journey h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Mobile M */
+@media (max-width: 576px) {
+  .about-section {
+    padding: 30px 15px;
+  }
+  .about-text h2 {
+    font-size: 1.6rem;
+  }
+  .feature-card h4 {
+    font-size: 1rem;
+  }
+  .feature-card p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile S */
+@media (max-width: 400px) {
+  .about-section {
+    padding: 25px 12px;
+  }
+  .about-text h2 {
+    font-size: 1.4rem;
+  }
+  .about-text p {
+    font-size: 0.9rem;
+  }
+  .journey h3 {
+    font-size: 1.1rem;
+  }
+  .about-images {
+    gap: 12px;
+  }
+  .about-text h2::after{
+    margin-left: 120px;
+  }
+}
+    
+    /* Contact Section */
+
+    body {
+      margin: 0;
+    }
+
+    .hero-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 50px;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .hero-text h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1.3;
+      font-family: "Arimo", sans-serif;
+    }
+
+    .hero-text h1 .red {
+      color: black;
+    }
+
+    .hero-text p {
+      margin: 20px 0;
+      font-size: 18px;
+      color: #333;
+      line-height: 1.6;
+      font-family: "Arimo", sans-serif;
+    }
+
+    .hero-text a {
+      background: #8b0e0e;
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      padding: 10px 30px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      font-family: "Arimo", sans-serif;
+    }
+
+    .hero-text a:hover {
+      background: #a61a1a;
+    }
+
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+/* =====================
+   ✅ Responsive Design
+   ===================== */
+
+/* Tablet & Mobile L */
+@media(max-width: 992px) {
+  .hero-section {
+    padding: 40px 30px;
+    gap: 30px;
+  }
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+  .hero-text p {
+    font-size: 16px;
+  }
+  .hero-text a {
+    font-size: 16px;
+    padding: 8px 24px;
+  }
+}
+
+/* Mobile M */
+@media(max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+  }
+  .hero-text h1 {
+    font-size: 1.9rem;
+  }
+  .hero-text p {
+    font-size: 15px;
+  }
+  .hero-image img {
+    max-width: 90%;
+  }
+}
+
+/* Mobile S */
+@media(max-width: 480px) {
+  .hero-section {
+    padding: 25px 15px;
+    gap: 20px;
+  }
+  .hero-text h1 {
+    font-size: 1.6rem;
+  }
+  .hero-text p {
+    font-size: 14px;
+  }
+  .hero-text a {
+    font-size: 15px;
+    padding: 8px 20px;
+  }
+  .hero-image img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+}

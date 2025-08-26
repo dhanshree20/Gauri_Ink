@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Roboto", sans-serif;
+    }
+
+    /* Navbar container */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+    }
+
+    /* Logo */
+    .logo img {
+      height: 55px;
+      width: auto;
+    }
+
+    /* Desktop Menu */
+    .menu {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    .menu li {
+      position: relative;
+    }
+
+    .menu a {
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+      color: #000;
+      transition: 0.3s;
+    }
+
+    .menu a:hover {
+      color: #daa03f;
+    }
+
+    /* Dropdown (desktop hover) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 25px;
+      left: 0;
+      background: #fff;
+      border: 1px solid #ddd;
+      list-style: none;
+      padding: 10px 0;
+      min-width: 300px;
+      z-index: 100;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content li {
+      padding: 8px 15px;
+    }
+
+    .dropdown-content li a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    .dropdown i {
+      margin-left: 5px;
+      font-size: 12px;
+      transition: transform 0.3s;
+    }
+
+    .dropdown:hover i {
+      transform: rotate(180deg);
+    }
+
+    /* Hamburger (mobile only) */
+    .hamburger {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    /* ===== MOBILE MENU (Slide Drawer) ===== */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 280px;
+      height: 100%;
+      background: #fff;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+      transition: right 0.3s ease-in-out;
+      padding: 20px;
+      z-index: 999;
+      overflow-y: auto;
+    }
+
+    .mobile-menu.active {
+      right: 0;
+      background-color: #daa03f ;
+    }
+
+    .mobile-menu .close-btn {
+      text-align: right;
+      font-size: 24px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    .mobile-menu ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .mobile-menu a {
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+      color: #000;
+      display: block;
+      margin-left: 10px;
+      border-bottom: 1px solid rgba(1, 1, 1, 0.1);
+    }
+
+    .mobile-menu a:hover {
+      color: black;
+    }
+
+    /* Dropdown in Mobile (Initially Hidden) */
+  .mobile-dropdown-content {
+  display: none !important;  /* force hidden */
+  flex-direction: column;
+  padding-left: 15px;
+  gap: 10px;
+}
+
+/* When open class is added */
+.mobile-dropdown.open .mobile-dropdown-content {
+  display: flex !important;
+}
+
+/* Rotate arrow when open */
+.mobile-dropdown.open .fa-chevron-down {
+  transform: rotate(180deg);
+}
+
+    .fa-chevron-down {
+      margin-left: 5px;
+      transition: transform 0.3s ease;
+    }
+
+    /* Hide desktop menu in mobile */
+    @media (max-width: 768px) {
+      .menu {
+        display: none;
+      }
+      .hamburger {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="index.html"><img src="images/logo.webp" alt="Logo"></a>
+    </div>
+
+    <!-- Hamburger -->
+    <div class="hamburger" id="hamburger">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <!-- Desktop Menu -->
+    <ul class="menu">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="dropdown">
+        <a href="#">Industry <i class="fa-solid fa-chevron-down"></i></a>
+        <ul class="dropdown-content">
+          <li><a href="food_industry.html">Food Industry</a></li>
+          <li><a href="beverage_Industry.html">Beverage Industry</a></li>
+          <li><a href="pharmaceutical_Cosmetics.html">Pharmaceutical, Cosmetics & Personal Care</a></li>
+          <li><a href="building_Materials.html">Building Materials</a></li>
+        </ul>
+      </li>
+      <li><a href="product.html">Products</a></li>
+      <li><a href="gallery.html">Our Gallery</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </header>
+
+  <!-- Mobile Slide Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="close-btn" id="closeBtn"><i class="fa-solid fa-xmark"></i></div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="mobile-dropdown">
+  <a href="#" class="mobileDropdownToggle">
+    Industry <i class="fa-solid fa-chevron-down"></i>
+  </a>
+  <ul class="mobile-dropdown-content">
+    <li><a href="food_industry.html">Food Industry</a></li>
+    <li><a href="beverage_Industry.html">Beverage Industry</a></li>
+    <li><a href="pharmaceutical_Cosmetics.html">Pharmaceutical, Cosmetics & Personal Care</a></li>
+    <li><a href="building_Materials.html">Building Materials</a></li>
+  </ul>
+</li>
+
+      <li><a href="product.html">Products</a></li>
+      <li><a href="gallery.html">Our Gallery</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const closeBtn = document.getElementById("closeBtn");
+
+    // Open menu
+    hamburger.addEventListener("click", () => {
+      mobileMenu.classList.add("active");
+    });
+
+    // Close menu
+    closeBtn.addEventListener("click", () => {
+      mobileMenu.classList.remove("active");
+    });
+
+    // Dropdown toggle (Initially Closed)
+    // Dropdown toggle (Initially Closed)
+document.querySelectorAll(".mobileDropdownToggle").forEach(toggle => {
+  toggle.addEventListener("click", (e) => {
+    e.preventDefault();
+    const parent = toggle.parentElement; // li.mobile-dropdown
+    
+    // close any other open dropdowns
+    document.querySelectorAll(".mobile-dropdown").forEach(drop => {
+      if (drop !== parent) {
+        drop.classList.remove("open");
+      }
+    });
+
+    // toggle current dropdown
+    parent.classList.toggle("open");
+  });
+});
+
+  </script>
+
+</body>
+</html>

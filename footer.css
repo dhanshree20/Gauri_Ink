@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+
+/* Floating WhatsApp Button */
+.whatsapp-float-button {
+  position: fixed;
+  bottom: 10px;
+  right: 22px;
+  z-index: 999;
+}
+
+.whatsapp-float-button a {
+  background-color: #25d366;
+  color: white;
+  font-size: 28px;
+  padding: 12px 16px;
+  border-radius: 100%;
+  display: inline-block;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease;
+}
+
+.whatsapp-float-button a:hover {
+  background-color: #1ebd5b;
+}
+
+@media (max-width: 768px) {
+  .whatsapp-float-button {
+    right: 12px;
+    bottom: 10px; /* Slightly higher for thumb reach and scroll button spacing */
+  }
+
+  .whatsapp-float-button a {
+    font-size: 24px;
+    padding: 12px 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-float-button {
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .whatsapp-float-button a {
+    font-size: 22px;
+    padding: 8px 11px;
+  }
+}
+
+
+/* Footer Styles */
+.footer {
+    background-color: black;
+    color: #fff;
+    position: relative;
+    margin-top: 100px;
+}
+
+.footer-waves {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.footer-waves svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 100px;
+}
+
+.footer-waves .shape-fill {
+    fill: black;
+}
+
+.footer-content {
+    padding: 80px 20px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.footer-column h3 {
+    color: #fffdfd;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+    font-family: "Arimo", sans-serif;
+}
+
+.footer-column h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background: #faf9f9;
+}
+
+.footer-column p {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-family: "Arimo", sans-serif;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-family: "Arimo", sans-serif;
+}
+
+.social-links a:hover {
+    background: #daa03f ;
+    transform: translateY(-3px);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-family: "Arimo", sans-serif;
+}
+
+.footer-links a:hover {
+    color: #daa03f ;
+    transform: translateX(5px);
+}
+
+.contact-info {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-info li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.contact-info i {
+    color: #fffdfd;
+    font-size: 1.2rem;
+    margin-top: 5px;
+}
+
+.contact-info span {
+    color: #ccc;
+    line-height: 1.6;
+    font-family: "Arimo", sans-serif;
+}
+
+.newsletter-form .form-group {
+    display: flex;
+    gap: 10px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #e1e1e1;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+    color: #fff;
+    outline: none;
+}
+
+.newsletter-form input::placeholder {
+    color: #ccc;
+}
+
+.newsletter-form button {
+    padding: 12px 25px;
+    background: #e60000;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background: #ff0000;
+    transform: translateY(-2px);
+}
+
+.footer-bottom {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-bottom p {
+    color: #ccc;
+    margin: 0;
+    font-family: "Arimo", sans-serif;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 20px;
+    font-family: "Arimo", sans-serif;
+}
+
+.footer-bottom-links a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom-links a:hover {
+    color: #e60000;
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .newsletter-form .form-group {
+        flex-direction: column;
+    }
+
+    .newsletter-form button {
+        width: 100%;
+    }
+}
